@@ -11,4 +11,5 @@ RUN apk add --no-cache --update --virtual build-dependencies alpine-sdk automake
     && cd /tmp/php-amqp \
     && phpize && ./configure && make && make install \
     && cd ../ && rm -rf /tmp/php-amqp && apk del build-dependencies \
-    && docker-php-ext-enable amqp
+    && docker-php-ext-enable amqp \
+    && docker-php-ext-install pcntl
